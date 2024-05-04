@@ -1,0 +1,46 @@
+<!--
+This file is ued to create a search for seasonal deaths
+Primary Source Code writer: Chris
+Secondary Source Code writer: Katrina
+Last updated: 5/2/24
+-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Changes color of container -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of Death Per Year</title>
+    <style>
+        .card {
+            background-color: #77b66d;
+        }
+    </style>
+</head>
+
+<!-- Creates a container to handle user input -->
+<div class="card">
+    <div class="card-header">
+      <h5><strong>Age of Death Per Year</strong></h5>
+    </div>
+    <div class="card-body">
+      <form action="/deathyear" method="POST">
+        <div>
+            Enter the year you want to find deaths for (range is between 2015 and 2024):
+            <input type="number" name="year" min="2015" max="2024" required>
+        </div>
+        <br>
+            <input class="btn btn-success" type="submit" value="Submit">
+    </form>
+    </div>
+  </div>
+
+  <br>
+  <p><a class="btn btn-success" href="{{ url_for('home') }}">Back to Home Page</a></p>
+
+{% endblock %}

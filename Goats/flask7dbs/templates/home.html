@@ -1,0 +1,174 @@
+<!--
+This file is the home page of the website.
+Primary Source Code writer: Katrina
+Last updated: 5/2/24
+-->
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<style>
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /*Create 3 columns that floats to view 3 options*/
+    .column{
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+    }
+
+    /*Clear floats after columns*/
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .button {
+        border: none;
+        color: #bce8b5;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+            
+    .button1 {
+        background-color: #bce8b5; 
+        color: #5d5d5d; 
+        border: 2px solid #8cc982;
+    }
+    
+    .button1:hover {
+        background-color: #5da053;
+        color: white;
+    }
+    
+    .button2 {
+        background-color: #bce8b5; 
+        color: #5d5d5d; 
+        border: 2px solid #77b66d;
+    }
+    
+    .button2:hover {
+        background-color: #397230;
+        color: white;
+    }
+
+    .button3 {
+        background-color: #bce8b5;
+        color: #5d5d5d;
+        border: 2px solid #5da053;
+    }
+
+    .button3:hover {
+        background-color: #1e4617;
+        color: white;
+    }
+</style>
+
+<script>
+    function toggleImg(){
+        var img1 = "{{ url_for('static', filename = 'images/littlelad.gif') }}";
+        var img2 = "{{ url_for('static', filename = 'images/kirby.gif') }}"
+
+        var imgElement = document.getElementById('toggleImg');
+
+        imgElement.src = (imgElement.src == img1)? img2 : img1;
+    }
+</script>
+
+
+    <!--display silvies logo-->
+    <img src="{{ url_for('static', filename = 'images/silvies_logo.png') }}" alt="Silvies Ranch" style="width:50%">
+    <br>
+    
+    <center>
+        <!--welcome text-->
+        <h1 font-size="+50" style="font-family: Georgia">Welcome!</h1>
+    </center>
+    <br>
+
+    <!--3 columns with redirection buttons regarding weight correlations, seasonal deaths, and graphs-->
+    <div class="row">
+        <!--Each column has a header, a body of text, and then a button linked to the corresponding form-->
+        <div class="column" style="background-color: #8cc982;">
+            <center>
+                <h2 style="font-family: Georgia">Weight Correlation</h2>
+                <p>Find out correlations between birth weights and other types of weights.</p>
+                <a href="weight_form">
+                    <button class="button button1">CLICK HERE</button>
+                </a>
+            </center>
+
+        </div>
+        <div class="column" style="background-color:#77b66d;">
+            <center>
+                <h2 style="font-family: Georgia">Age of Death</h2>
+                <p>Calculate the age of death of the goats in a given year.</p>
+                <a href="deaths_form">
+                    <button class="button button2">CLICK HERE</button>
+                </a>
+            </center>
+
+        </div>
+        <div class="column" style="background-color: #8cc982;">
+            <center>
+                <h2 style="font-family: Georgia">Graphs</h2>
+                <p>Visualize the data through helpful graphs marking certain correlations or patterns.</p>
+                <a href="home_graph">
+                    <button class="button button1">CLICK HERE</button>
+                </a>
+            </center>
+
+        </div>
+        <div class="column" style="background-color: #77b66d;">
+            <center>
+                <h2 style="font-family: Georgia">Death Table</h2>
+                <p>Compare the deaths between each year of the database through a table.</p>
+                <a href="compare_deaths">
+                    <button class="button button2">CLICK HERE</button>
+                </a>
+            </center>
+
+        </div>
+        <div class="column" style="background-color: #8cc982;">
+            <center>
+                <h2 style="font-family: Georgia">Birth Table</h2>
+                <p>Compare the average birthweight between each year of the database through a table.</p>
+                <a href="compare_births">
+                    <button class="button button1">CLICK HERE</button>
+                </a>
+            </center>
+
+        </div>
+        <div class="column" style="background-color: #77b66d;">
+            <center>
+                <h2 style="font-family: Georgia">Weight Table</h2>
+                <p>Compare the average weaning, winter, and sale weights based on birthweight in a table.</p>
+                <a href="compare_weights">
+                    <button class="button button2">CLICK HERE</button>
+                </a>
+            </center>
+
+        </div>
+    </div>
+    <br> <br>
+
+    <img src="{{ url_for('static', filename = 'images/littlelad.gif') }}" alt="Goat doing a little dance" style="width:250px; height:250px" id="toggleImg" onclick="toggleImg()"/>
+</html>
+
+{% endblock %}

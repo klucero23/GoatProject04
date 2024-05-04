@@ -1,0 +1,61 @@
+<!--
+This file is used to implement the sale weight graphs into the application
+Primary Source Code writer: Chris
+Last updated: 5/2/24
+-->
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale Weights</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Sale Weights</h1>
+    <canvas id="saleWeightChart" width="800" height="400"></canvas>
+
+    <script>
+        var ctx = document.getElementById('saleWeightChart').getContext('2d');
+        var data = {
+            datasets: [{
+                label: 'Adult Goat Weight',
+                data: [{% for item in data %}{x: {{ item.birthweight }}, y: {{ item.weight }}}, {% endfor %}],
+                backgroundColor: 'rgba(252, 147, 10, 0.2)',
+                borderColor: 'rgba(252, 147, 10, 1)',
+                borderWidth: 1
+            }]
+        };
+        var options = {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Birth Weight'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Adult Weight'
+                    }
+                }
+            }
+        };
+        var saleWeightChart = new Chart(ctx, {
+            type: 'scatter',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>
+
+<p><a class="btn btn-success" href="home_graph">Back to Graph List</a></p>
+{% endblock %}

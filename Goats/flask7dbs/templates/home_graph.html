@@ -1,0 +1,52 @@
+<!--
+This file is the home page for all the graphs.
+Primary Source Code writer: Chris
+Last updated: 5/2/24
+-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Goat Deaths Per Year</title>
+    <style>
+        .card {
+            background-color: #77b66d;
+        }
+    </style>
+</head>
+
+<div class="card">
+    <div class="card-header">
+      <h5><strong>Death Graphs</strong></h5>
+    </div>
+      <div class="card-body">
+        <p><a class="btn btn-success" href="graph">Total Deaths Graph</a></p>
+        <p><a class="btn btn-success" href="spring_graph">Spring Deaths Graph</a></p>
+        <p><a class="btn btn-success" href="summer_graph">Summer Deaths Graph</a></p>
+        <p><a class="btn btn-success" href="winter_graph">Winter Deaths Graph</a></p>
+        <p><a class="btn btn-success" href="fall_graph">Fall Deaths Graph</a></p>
+      </div>
+    </div>
+
+    <br>
+<div class="card">
+    <div class="card-header">
+        <h5><strong>Weight Graphs</strong></h5>
+    </div>
+
+    <div class="card-body">
+        <p><a class="btn btn-success" href="weaning_weight_graph">Weaning Weights Graph</a></p>
+        <p><a class="btn btn-success" href="winter_weight_graph">Winter Weights Graph</a></p>
+        <p><a class="btn btn-success" href="sale_weight_graph">Sale Weights Graph</a></p>
+    </div>
+</div>
+
+    <br>
+      <p><a class="btn btn-success" href="{{ url_for('home') }}">Back to Home Page</a></p>
+
+{% endblock %}

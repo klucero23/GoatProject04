@@ -1,0 +1,44 @@
+<!--
+This file is ued to create a search for specific weights
+Primary Source Code writer: Chris
+Last updated: 4/23/24
+-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Changes color of container -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Goat Deaths Per Year</title>
+    <style>
+        .card {
+            background-color: #77b66d;
+        }
+    </style>
+</head>
+
+<!-- Creates a container that will handle user input -->
+<div class="card">
+    <div class="card-header">
+      <h5><strong>Correlation Between Birth Weights</strong></h5>
+    </div>
+    <div class="card-body">
+      <form action="/weight" method="POST">
+        <div>
+            Enter a Birth Weight:
+            <input type="number" step="any" name="birthweight" min="1" required>
+        </div>
+        <br>
+            <input class="btn btn-success" type="submit" value="Submit">
+    </form>
+    </div>
+  </div>
+
+  <br>
+  <p><a class="btn btn-success" href="{{ url_for('home') }}">Back to Home Page</a></p>
+  {% endblock %}

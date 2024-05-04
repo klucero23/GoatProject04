@@ -1,0 +1,13 @@
+$ createdb goatsdb  
+$ psql goatsdb    
+$ \i schema.sql  
+$ \i create_goats.sql  
+$ \i queries.sql  
+
+
+sudo pacman -Syu  
+sudo pacman -S python-pip python-psycopg2 python-flask 
+
+
+Export FLASK_APP=app.py  
+flask run  
